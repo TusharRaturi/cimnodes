@@ -375,7 +375,6 @@ local t={
     MultipleSelectModifier=true},
   nonPOD_used={
     ImVec2="inherited"},
-  opaque_structs={},
   structs={
     EmulateThreeButtonMouse={
       [1]={

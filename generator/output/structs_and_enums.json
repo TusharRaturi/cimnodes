@@ -449,7 +449,6 @@
   "nonPOD_used": {
     "ImVec2": "inherited"
   },
-  "opaque_structs": [],
   "structs": {
     "EmulateThreeButtonMouse": [
       {
