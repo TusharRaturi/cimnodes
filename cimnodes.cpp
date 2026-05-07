@@ -7,20 +7,7 @@
 
 
 
-static inline ImVec2 ConvertToCPP_ImVec2(const ImVec2_c& src)
-{
-    ImVec2 dest;
-    dest.x = src.x;
-    dest.y = src.y;
-    return dest;
-}
-static inline ImVec2_c ConvertFromCPP_ImVec2(const ImVec2& src)
-{
-    ImVec2_c dest;
-    dest.x = src.x;
-    dest.y = src.y;
-    return dest;
-}CIMGUI_API EmulateThreeButtonMouse* EmulateThreeButtonMouse_EmulateThreeButtonMouse(void)
+CIMGUI_API EmulateThreeButtonMouse* EmulateThreeButtonMouse_EmulateThreeButtonMouse(void)
 {
     return IM_NEW(EmulateThreeButtonMouse)();
 }
@@ -92,13 +79,13 @@ CIMGUI_API void imnodes_EditorContextSet(ImNodesEditorContext* noname1)
 {
     return imnodes::EditorContextSet(noname1);
 }
-CIMGUI_API ImVec2_c imnodes_EditorContextGetPanning()
+CIMGUI_API void imnodes_EditorContextGetPanning(ImVec2 *pOut)
 {
-    return ConvertFromCPP_ImVec2(imnodes::EditorContextGetPanning());
+    *pOut = imnodes::EditorContextGetPanning();
 }
-CIMGUI_API void imnodes_EditorContextResetPanning(const ImVec2_c pos)
+CIMGUI_API void imnodes_EditorContextResetPanning(const ImVec2 pos)
 {
-    return imnodes::EditorContextResetPanning(ConvertToCPP_ImVec2(pos));
+    return imnodes::EditorContextResetPanning(pos);
 }
 CIMGUI_API void imnodes_EditorContextMoveToNode(const int node_id)
 {
@@ -148,9 +135,9 @@ CIMGUI_API void imnodes_PushStyleVar_Float(ImNodesStyleVar style_item,float valu
 {
     return imnodes::PushStyleVar(style_item,value);
 }
-CIMGUI_API void imnodes_PushStyleVar_Vec2(ImNodesStyleVar style_item,const ImVec2_c value)
+CIMGUI_API void imnodes_PushStyleVar_Vec2(ImNodesStyleVar style_item,const ImVec2 value)
 {
-    return imnodes::PushStyleVar(style_item,ConvertToCPP_ImVec2(value));
+    return imnodes::PushStyleVar(style_item,value);
 }
 CIMGUI_API void imnodes_PopStyleVar(int count)
 {
@@ -164,9 +151,9 @@ CIMGUI_API void imnodes_EndNode()
 {
     return imnodes::EndNode();
 }
-CIMGUI_API ImVec2_c imnodes_GetNodeDimensions(int id)
+CIMGUI_API void imnodes_GetNodeDimensions(ImVec2 *pOut,int id)
 {
-    return ConvertFromCPP_ImVec2(imnodes::GetNodeDimensions(id));
+    *pOut = imnodes::GetNodeDimensions(id);
 }
 CIMGUI_API void imnodes_BeginNodeTitleBar()
 {
@@ -216,29 +203,29 @@ CIMGUI_API void imnodes_SetNodeDraggable(int node_id,const bool draggable)
 {
     return imnodes::SetNodeDraggable(node_id,draggable);
 }
-CIMGUI_API void imnodes_SetNodeScreenSpacePos(int node_id,const ImVec2_c screen_space_pos)
+CIMGUI_API void imnodes_SetNodeScreenSpacePos(int node_id,const ImVec2 screen_space_pos)
 {
-    return imnodes::SetNodeScreenSpacePos(node_id,ConvertToCPP_ImVec2(screen_space_pos));
+    return imnodes::SetNodeScreenSpacePos(node_id,screen_space_pos);
 }
-CIMGUI_API void imnodes_SetNodeEditorSpacePos(int node_id,const ImVec2_c editor_space_pos)
+CIMGUI_API void imnodes_SetNodeEditorSpacePos(int node_id,const ImVec2 editor_space_pos)
 {
-    return imnodes::SetNodeEditorSpacePos(node_id,ConvertToCPP_ImVec2(editor_space_pos));
+    return imnodes::SetNodeEditorSpacePos(node_id,editor_space_pos);
 }
-CIMGUI_API void imnodes_SetNodeGridSpacePos(int node_id,const ImVec2_c grid_pos)
+CIMGUI_API void imnodes_SetNodeGridSpacePos(int node_id,const ImVec2 grid_pos)
 {
-    return imnodes::SetNodeGridSpacePos(node_id,ConvertToCPP_ImVec2(grid_pos));
+    return imnodes::SetNodeGridSpacePos(node_id,grid_pos);
 }
-CIMGUI_API ImVec2_c imnodes_GetNodeScreenSpacePos(const int node_id)
+CIMGUI_API void imnodes_GetNodeScreenSpacePos(ImVec2 *pOut,const int node_id)
 {
-    return ConvertFromCPP_ImVec2(imnodes::GetNodeScreenSpacePos(node_id));
+    *pOut = imnodes::GetNodeScreenSpacePos(node_id);
 }
-CIMGUI_API ImVec2_c imnodes_GetNodeEditorSpacePos(const int node_id)
+CIMGUI_API void imnodes_GetNodeEditorSpacePos(ImVec2 *pOut,const int node_id)
 {
-    return ConvertFromCPP_ImVec2(imnodes::GetNodeEditorSpacePos(node_id));
+    *pOut = imnodes::GetNodeEditorSpacePos(node_id);
 }
-CIMGUI_API ImVec2_c imnodes_GetNodeGridSpacePos(const int node_id)
+CIMGUI_API void imnodes_GetNodeGridSpacePos(ImVec2 *pOut,const int node_id)
 {
-    return ConvertFromCPP_ImVec2(imnodes::GetNodeGridSpacePos(node_id));
+    *pOut = imnodes::GetNodeGridSpacePos(node_id);
 }
 CIMGUI_API void imnodes_SnapNodeToGrid(int node_id)
 {
